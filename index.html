@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/style.css">
+    <title>Hello World!</title>
+</head>
+<body>
+<section class="hero is-dark is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">IG Creator Unleashed</h1>
+            Running on Node Version: <span id="node-version"></span>
+            and Electron <span id="electron-version"></span>
+        <br/>
+            Modify config files at <span id="dirpath"></span>
+            <div class="column is-half is-offset-one-quarter">
+            <div class="box">
+
+                <div class="content">
+
+                    <label class="label">Delay Pattern</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Eg: 3000,6000|2000,5000|5000,10000" id="delays">
+                    </div>
+                    <br/>
+                    <label class="label">Mode</label>
+                    <div class="control">
+                        <div class="select" >
+                            <select id="mode">
+                                <option>Auto</option>
+                                <option>Manual</option>
+                                <option>Fingerprint Test</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+                    <label class="label">Reset IP Mode</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="resetMode">
+                                <option>Jiofi</option>
+                                <option>Manual</option>
+                                <option>Execute reset.(sh/bat)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+                    <label class="label">Manual UA</label>
+                    <div class="control">
+                        <input class="input" id="UAfield" type="text" placeholder="Leave empty to auto generate UA">
+                    </div>
+
+                <br/>
+                    <div class="column">
+                        <button id="openPluginsFolder" class="button is-dark is-fullwidth">View Plugins Folder</button>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+            <div class="column is-half is-offset-one-quarter has-text-justified control">
+            <div class="columns">
+                <div class="column">
+                <button id="startApp" class="button is-light is-fullwidth">Start</button>
+                </div>
+
+                <div class="column">
+                <button id="exitApp" class="button is-danger is-fullwidth">Exit</button>
+                </div>
+
+            </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</section>
+<!-- You can also require other files to run in this process -->
+<script src="./src/handleIPC.js"></script>
+<script src="./renderer.js"></script>
+
+</body>
+</html>
