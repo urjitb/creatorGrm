@@ -1,0 +1,8 @@
+{
+    "ext_name": {
+	    "message": "WebRTC Leak Control - контроль безопасности"
+    },
+    "ext_description": {
+	    "message": "Предотвратите утечку WebRTC и защитите свою конфиденциальность."
+    }
+}

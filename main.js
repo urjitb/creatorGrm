@@ -16,7 +16,8 @@ let mainWindow = null
 app.once('ready', () => {
   // Create the browser window.
     mainWindow = new BrowserWindow({
-
+        width: 600, height: 800,
+        frame: false,
         show: false,
         webPreferences: {
             nodeIntegration:true,
