@@ -1,6 +1,6 @@
-const webdriver = require("selenium-webdriver")
+const puppeteer = require("puppeteer")
 
-let test = "https://test.com?"
+let test = "https://instagram.com"
 
 class create{
 
@@ -9,13 +9,21 @@ class create{
         this.mode = mode;
         this.reset = reset;
         this.manual = manual;
-2
+
     }
 
-createAccount(){
+async createAccount(){
 
-const driver = new webdriver.Builder().forBrowser("chrome").build()
-console.log(test + this.delays.toString() +this.mode+this.reset)
+    const browser = await puppeteer.launch({
+        headless: false,
+        args: [
+            '--disable-extensions-except=./exts/jk.crx,./exts/lk.crx'
+        ]
+    });
+    const page = await browser.newPage();
+    await page.goto('https://example.com');
+
+
 
 }
 
